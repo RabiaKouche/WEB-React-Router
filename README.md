@@ -8,7 +8,8 @@
 
 |Nom|Prénom|login|email|
 |--|--|--|--|
-| ??? | ??? | ??? | ???@???.?? |
+| kaci | lounes | kl183459 | lounes.kaci@etu.univ-lehavre.fr |
+| kouche | rabia | kr183707 | rabia.kouche@etu.univ-lehavre.fr |
 
 ## Travail à réaliser
 
