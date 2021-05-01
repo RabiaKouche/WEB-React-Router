@@ -1,0 +1,119 @@
+.App {
+    background-color: whitesmoke;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(5px + 2vmin);
+    color: darkblue;
+    text-align: center;
+  }
+  
+  .AppHeader {
+    margin-bottom: 10vmin;
+  
+    .title {
+      font-size: calc(10px + 2vmin);
+      font-weight: bold;
+      color: black;
+    }
+  
+    .url {
+      padding: 1rem;
+      box-shadow: 0 0 2pt 1px cornflowerblue;
+      border-radius: 5px;
+      color: black;
+    }
+  }
+  
+  $selected-color: antiquewhite;
+  
+  .AppMain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+  
+    .buttonList {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .capteurInfo {
+      max-width: 400px;
+      flex-basis: 40%;
+      display: flex;
+      flex-direction: column;
+  
+      .name {
+        border: solid 2px $selected-color;
+        font-size: calc(10px + 2vmin);
+        font-weight: bold;
+        padding: .5rem;
+        border-radius: 3px;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        border: 1px solid white;
+        padding: .4rem;
+        background-color: transparent;
+        color: black;
+        margin: .5rem 0;
+        box-shadow: 0 0 7px 1px red;
+        font-size: calc(1px + 2vmin);
+      }
+  
+      .val {
+        text-align: right;
+        font-weight: bold;
+        font-size: calc(20px + 2vmin);
+        margin-bottom: 1rem;
+        color: black;
+      }
+  
+      .text {
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: .5rem;
+        color: black;
+      }
+  
+      .historique {
+        display: flex;
+        justify-content: flex-end;
+  
+        table, tr, td {
+          border: solid 1px black;
+        }
+  
+        table {
+          flex-basis: 70%;
+          border-collapse: collapse;
+          color: black;
+        }
+  
+        tr:nth-child(even) {
+          background-color: darken(white, 33%);
+        }
+      }
+    }
+  }
+  
+  
+  .AppButton {
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: .4rem;
+    background-color: transparent;
+    color: black;
+    margin: .5rem 0;
+    box-shadow: 0 0 7px 1px red;
+    font-size: calc(1px + 2vmin);
+  
+    &:hover {
+      cursor: pointer;
+      border-color: antiquewhite;
+    }
+  
+  }
+  
