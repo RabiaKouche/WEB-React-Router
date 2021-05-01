@@ -5,6 +5,8 @@ import mqtt from 'mqtt';
 import {Sensor} from './Sensor';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import LinkButton from './composants/LinkButton';
+import UrlBroker from './composants/UrlBroker';
+
 
 
 const url = 'ws://random.pigne.org:9001';
@@ -48,11 +50,25 @@ const CapteurInfo = ({capteur}) => {
 const App = () => {
    
     const [capteurs, setCapteurs] = useState([]);
+    const [urlBroker, setUrlBroker] = useState(url);
+    const [urlError, setUrlError] = useState(false);
+
+
 
     useEffect(() => {
-        const client = mqtt.connect(url);
+        const client = mqtt.connect(urlBroker);
+        client.stream.on('error', err => setUrlError(true));
+
         client.on('connect', function () {
+            setUrlError(false);
             client.subscribe('value/#', function (err) {
+                if (err !== null) {
+                    setUrlError(true);
+                    console.log(err);
+                } else {
+                    setUrlError(false);
+                }
+
             });
         });
         client.on('message', function (topic, message) {
@@ -72,14 +88,15 @@ const App = () => {
         return () => {
             client.end();
         };
-    }, []);
+    }, [urlBroker]);
 
     return (
         <Router>
             <div className={styles.App}>
                 <header className={styles.AppHeader}>
-                    <p className={styles.title}>URL du Broker:</p>
-                    <div className={styles.url}>{url}</div>
+
+                    <UrlBroker urlBroker={urlBroker} setUrlBroker={setUrlBroker} urlError={urlError}/>
+
 
                 </header>
                 <main className={styles.AppMain}>
