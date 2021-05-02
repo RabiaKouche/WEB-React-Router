@@ -113,7 +113,6 @@ const App = () => {
                         <Switch>
                             {capteurs.map(capteur => (
                                 <Route key={capteur.id} path={`/${capteur.name}`}>
-
                                     <CapteurInfo capteur={capteur}/>
                                 </Route>
                             ))}
